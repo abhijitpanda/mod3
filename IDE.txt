@@ -1,0 +1,47 @@
+
+
+
+
+COMMAND         TARGET                         VALUE
+
+
+
+
+
+
+
+
+
+open     	/ 
+	
+verifyTitle 	Your Store 
+	
+click 	        name=search 
+	  
+type 	        name=search 	               windows
+
+clickAndWait 	xpath=(//button[@type='button'])[4] 
+	
+verifyTitle 	Search - windows 
+	
+select 	        name=category_id 	       label=regexp:\s+PC
+
+click 	        name=sub_category 
+	
+clickAndWait 	id=button-search 
+	
+verifyTextPresent 		               Products meeting the search criteria
+
+select 	        name=category_id 	               label=regexp:\s+Monitors
+
+click 	        id=description 
+	
+clickAndWait 	id=button-search 
+	
+verifyTextPresent 		               Apple Cinema 30
+
+click 	   css=div.button-group > button[type="button"] 	
+
+click 	   css=div.btn-group > button.btn.btn-default 
+	
+verifyTextPresent 		               You must login or create an account to save Apple Cinema 30" to your wish list!
