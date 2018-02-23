@@ -1,0 +1,127 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class San {
+public static void main(String args[]) throws InterruptedException
+{
+	WebDriver obj=new FirefoxDriver();
+	String baseurl="http://demo.opencart.com/";
+	obj.get(baseurl);
+	
+	if(obj.getTitle().contentEquals("Your Store")) //Verifying Title
+	{
+		System.out.println("Title Verified");
+	}
+	 Thread.sleep(3000);
+	List<WebElement> links = obj.findElements(By.tagName("a"));
+	
+	System.out.println(links.size());
+	obj.findElement(By.xpath(".//*[@id='top-links']/ul/li[2]/a/i")).click();
+	
+	obj.findElement(By.xpath(".//*[@id='top-links']/ul/li[2]/ul/li[1]/a")).click();
+	
+	obj.findElement(By.id("input-firstname")).sendKeys("Manikanta");
+	obj.findElement(By.xpath(".//*[@id='input-lastname']")).sendKeys("Koneru");
+	obj.findElement(By.xpath(".//*[@id='input-email']")).sendKeys("manikanta965411@live.com");
+	obj.findElement(By.xpath(".//*[@id='input-telephone']")).sendKeys("9701018551");
+	obj.findElement(By.xpath(".//*[@id='input-password']")).sendKeys("123456");
+	obj.findElement(By.xpath(".//*[@id='input-confirm']")).sendKeys("123456");
+	//System.out.println(obj.findElement(By.xpath(".//*[@id='content']/div/div[2]/h1")).getText()+"  Is Verified");
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	obj.findElement(By.xpath(".//*[@id='content']/form/div/div/input[1]")).click();
+	obj.findElement(By.xpath(".//*[@id='content']/form/div/div/input[2]")).click();
+	Thread.sleep(3000);
+	//
+	//System.out.println(obj.findElement(By.xpath(".//*[@id='account']/div[2]/div/div")).getText());
+	try{
+		obj.switchTo().alert().accept();
+		
+		if(obj.findElement(By.xpath(".//*[@id='account']/div[2]/div/div")).getText().contentEquals("First Name must be between 1 and 32 characters!"))
+		{
+			System.out.println(obj.findElement(By.xpath(".//*[@id='account']/div[2]/div/div")).getText()+"is verifed");
+		}
+	}
+	catch(Exception e)
+	{
+		System.out.println("Entered valid FirstName");
+	}
+	
+	//Verifiaction and Validation for lastname
+	
+try{
+	//System.out.println(obj.findElement(By.xpath(".//*[@id='account']/div[3]/div/div")).getText()+"is verifed");
+		if(obj.findElement(By.xpath(".//*[@id='account']/div[3]/div/div")).getText().contentEquals("Last Name must be between 1 and 32 characters!"))
+		{
+			System.out.println(obj.findElement(By.xpath(".//*[@id='account']/div[3]/div/div")).getText()+"is verifed");
+		}
+	}
+	catch(Exception e)
+	{
+		System.out.println("Entered valid LastName");
+	}
+try{
+	//System.out.println(obj.findElement(By.xpath(".//*[@id='account']/div[3]/div/div")).getText()+"is verifed");
+		if(obj.findElement(By.xpath(".//*[@id='account']/div[5]/div/div")).getText().contentEquals("Telephone must be between 3 and 32 characters!"))
+		{
+			System.out.println(obj.findElement(By.xpath(".//*[@id='account']/div[5]/div/div")).getText()+"is verifed");
+		}
+	}
+	catch(Exception e)
+	{
+		System.out.println("Entered valid Telephone");
+	}
+
+try{
+	//System.out.println(obj.findElement(By.xpath(".//*[@id='account']/div[3]/div/div")).getText()+"is verifed");
+		if(obj.findElement(By.xpath(".//*[@id='content']/form/fieldset[2]/div[2]/div/div")).getText().contentEquals("Password confirmation does not match password!"))
+		{
+			System.out.println(obj.findElement(By.xpath(".//*[@id='content']/form/fieldset[2]/div[2]/div/div")).getText()+"is verifed");
+		}
+	}
+	catch(Exception e)
+	{
+		System.out.println("Password Matched");
+	}
+
+System.out.println(obj.findElement(By.xpath(".//*[@id='content']/h1")).getText()+"  Is Verified");
+obj.findElement(By.xpath(".//*[@id='menu']/div[2]/ul/li[6]/a")).click();
+obj.findElement(By.xpath(".//*[@id='content']/div[2]/div[1]/div/div[1]/a/img")).click();
+System.out.println(obj.findElement(By.xpath(".//*[@id='content']/div/div[2]/h1")).getText());
+obj.findElement(By.id("button-cart")).click();
+Thread.sleep(3000);
+System.out.println(obj.findElement(By.xpath(".//*[@id='product-product']/div[1]")).getText() + "  is Verified");
+obj.findElement(By.xpath("html/body/footer/div/div/div[3]/ul/li[1]/a")).click();
+System.out.println(obj.findElement(By.xpath(".//*[@id='content']/h1")).getText()+"   Is Verified");
+obj.findElement(By.xpath(".//*[@id='content']/div[2]/div/a")).click();
+System.out.println(obj.findElement(By.xpath(".//*[@id='content']/h2")).getText()+"   Is Verified");
+obj.findElement(By.xpath(".//*[@id='content']/div[2]/div/div/div[2]/div[2]/button[2]")).click();
+Thread.sleep(3000);
+System.out.println(obj.findElement(By.xpath(".//*[@id='product-manufacturer']/div[1]")).getText()+"   Is Verified");
+obj.findElement(By.xpath("html/body/footer/div/div/div[4]/ul/li[3]/a")).click();
+obj.findElement(By.xpath(".//*[@id='content']/div[2]/div/a")).click();
+obj.close();
+
+
+
+
+
+//     
+}
+}
